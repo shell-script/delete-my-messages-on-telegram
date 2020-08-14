@@ -15,12 +15,11 @@ for dialog in client.get_dialogs():
 	if dialog.is_group:
 		entity = dialog.entity
 		for message in client.iter_messages(entity, from_user=client.get_me()):
-			if len(message_ids) < 300:
+			message_ids.append(message.id)
+			if len(message_ids) < 99:
 				counter +=1
-				message_ids.append(message.id)
 				continue
 			else:
-				message_ids.append(message.id)
 				client.delete_messages(client.get_entity(entity), message_ids)
 				message_ids=[]
 		client.delete_messages(client.get_entity(entity), message_ids)
