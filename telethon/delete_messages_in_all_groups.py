@@ -13,8 +13,7 @@ counter = 0
 
 for dialog in client.get_dialogs():
 	if dialog.is_group:
-		entity = dialog.entity
-		for message in client.iter_messages(entity, from_user=client.get_me()):
+		for message in client.iter_messages(dialog.entity, from_user=client.get_me()):
 			message_ids.append(message.id)
 			counter +=1
 			print('Message ID: %d, Chat ID: %d, Chat Title: %s' % (message.id, dialog.id, dialog.title))
