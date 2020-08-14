@@ -18,10 +18,10 @@ for dialog in client.get_dialogs():
 			counter +=1
 			print('Message ID: %d, Chat ID: %d, Chat Title: %s' % (message.id, dialog.id, dialog.title))
 			if len(message_ids) > 99:
-				client.delete_messages(client.get_entity(entity), message_ids)
+				client.delete_messages(client.get_entity(dialog.entity), message_ids)
 				print('%d messages were deleted.' % len(message_ids))
 				message_ids=[]
-		client.delete_messages(client.get_entity(entity), message_ids)
+		client.delete_messages(client.get_entity(dialog.entity), message_ids)
 
 print('Total %d messages were deleted.' % counter)
 print('Done! (Please run the script two to three times to clean every message. If you run once only, some messages may won\'t be deleted.)')
