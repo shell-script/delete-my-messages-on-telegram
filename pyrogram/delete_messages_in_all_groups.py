@@ -20,7 +20,7 @@ for dialog in app.iter_dialogs():
 			if len(message_ids) > 99:
 				app.delete_messages(dialog.chat.id, message_ids)
 				print('%d messages were deleted.' % len(message_ids))
-				message_ids=[]
+				message_ids = []
 		app.delete_messages(dialog.chat.id, message_ids)
 
 print('Total %d messages were deleted.' % counter)

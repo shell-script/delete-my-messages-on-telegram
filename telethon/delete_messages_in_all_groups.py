@@ -20,7 +20,7 @@ for dialog in client.get_dialogs():
 			if len(message_ids) > 99:
 				client.delete_messages(client.get_entity(dialog.entity), message_ids)
 				print('%d messages were deleted.' % len(message_ids))
-				message_ids=[]
+				message_ids = []
 		client.delete_messages(client.get_entity(dialog.entity), message_ids)
 
 print('Total %d messages were deleted.' % counter)
