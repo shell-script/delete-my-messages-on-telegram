@@ -12,6 +12,7 @@ async def handler(event):
 			if len(message_ids) < 300:
 				message_ids.append(message.id)
 			else:
+				message_ids.append(message.id)
 				await client.delete_messages(event.message.to_id.channel_id, messages_ids)
 				messages_ids = []
 		await client.delete_messages(event.message.to_id.channel_id, message_ids)

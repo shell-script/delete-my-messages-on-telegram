@@ -20,6 +20,7 @@ for dialog in client.get_dialogs():
 				message_ids.append(message.id)
 				continue
 			else:
+				message_ids.append(message.id)
 				client.delete_messages(client.get_entity(entity), message_ids)
 				message_ids=[]
 		client.delete_messages(client.get_entity(entity), message_ids)
