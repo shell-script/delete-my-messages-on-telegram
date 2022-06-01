@@ -4,9 +4,10 @@
 from pyrogram import Client
 app = Client('pyrogram', api_id='', api_hash='')
 
-@app.on_message()
+@app.on_message(filters.me & filters.regex('delmymsg'))
 def command_handler(client, message):
-	if (message.text == "delmymsg") and (message.from_user.id == app.get_me().id):
+	if message.text == "delmymsg":
+		message.delete()
 		message_ids = []
 		for i in app.search_messages(chat_id=message.chat.id, from_user=message.from_user.id):
 			message_ids.append(i.id)
